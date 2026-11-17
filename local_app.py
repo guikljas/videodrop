@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Literal
 from urllib.parse import urlparse
 
+import imageio_ffmpeg
 import yt_dlp
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
@@ -49,12 +50,16 @@ def download_video(request: DownloadRequest) -> dict[str, str]:
         "outtmpl": "%(title).180B [%(id)s].%(ext)s",
         "quiet": True,
         "no_warnings": True,
+        # imageio-ffmpeg fornece o executável necessário para combinar as faixas.
+        "ffmpeg_location": imageio_ffmpeg.get_ffmpeg_exe(),
     }
     if request.format == "audio":
         ydl_options["format"] = "bestaudio/best"
     else:
-        # Uses a single stream when possible, avoiding a bundled media converter.
-        ydl_options["format"] = "best[ext=mp4][vcodec!=none][acodec!=none]/best[vcodec!=none][acodec!=none]"
+        # O YouTube frequentemente entrega vídeo e áudio em arquivos separados.
+        # Esta ordem prefere MP4/M4A e depois usa qualquer combinação disponível.
+        ydl_options["format"] = "bv*[ext=mp4]+ba[ext=m4a]/bv*+ba/b"
+        ydl_options["merge_output_format"] = "mp4"
 
     try:
         with yt_dlp.YoutubeDL(ydl_options) as ydl:
