@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VideoDrop Local</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="nav"><a class="brand" href="/"><span class="brand-mark">↓</span>VideoDrop Local</a><span class="nav-note">roda somente no seu computador</span></nav>
+      <section class="hero">
+        <div class="eyebrow">DOWNLOAD LOCAL AUTORIZADO</div>
+        <h1>Guarde o que<br /><em>você pode usar.</em></h1>
+        <p class="intro">Cole uma URL do YouTube e escolha o formato. O arquivo é salvo localmente na pasta <code>downloads</code> deste projeto.</p>
+        <form id="download-form" class="download-card">
+          <label for="video-url">Link do YouTube</label>
+          <div class="input-row"><input id="video-url" type="url" required placeholder="https://www.youtube.com/watch?v=…" /><button id="download-button" type="submit">Baixar <span aria-hidden="true">↓</span></button></div>
+          <div class="format-row"><label><input type="radio" name="format" value="video" checked /> Vídeo (melhor arquivo disponível)</label><label><input type="radio" name="format" value="audio" /> Áudio</label></div>
+          <p id="status" class="status" role="status" aria-live="polite">Somente para conteúdo seu, Creative Commons ou com autorização explícita.</p>
+        </form>
+      </section>
+      <aside class="notice"><strong>Sem atalhos de proteção.</strong> Esta ferramenta não usa login, cookies, DRM nem tenta contornar restrições de acesso. Respeite os direitos autorais e os termos da plataforma.</aside>
+    </main>
+    <footer>VideoDrop Local · seus arquivos permanecem no seu computador</footer>
+    <script src="/assets/local.js"></script>
+  </body>
+</html>
