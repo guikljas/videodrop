@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Baixe vídeos de links diretos que você tem autorização para salvar." />
+    <title>VideoDrop — salve seus vídeos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="nav" aria-label="Navegação principal">
+        <a class="brand" href="#top" aria-label="VideoDrop, início"><span class="brand-mark">↓</span>VideoDrop</a>
+        <span class="nav-note">simples · privado · no navegador</span>
+      </nav>
+
+      <section id="top" class="hero" aria-labelledby="headline">
+        <div class="eyebrow">SEU ARQUIVO, SEU CONTROLE</div>
+        <h1 id="headline">Salve vídeos que<br /><em>são seus.</em></h1>
+        <p class="intro">Cole um link direto para um arquivo de vídeo. O download acontece no seu navegador — sem conta, sem armazenamento intermediário.</p>
+
+        <form id="download-form" class="download-card" novalidate>
+          <label for="video-url">Link do vídeo</label>
+          <div class="input-row">
+            <input id="video-url" name="video-url" type="url" inputmode="url" autocomplete="url" placeholder="https://exemplo.com/meu-video.mp4" required />
+            <button id="download-button" type="submit">Baixar <span aria-hidden="true">↓</span></button>
+          </div>
+          <p id="status" class="status" role="status" aria-live="polite">Aceita links públicos de vídeo com permissão de acesso.</p>
+        </form>
+      </section>
+
+      <section class="details" aria-label="Como funciona">
+        <article>
+          <span class="step">01</span>
+          <h2>Cole o link direto</h2>
+          <p>Use a URL do arquivo de vídeo, por exemplo MP4, WebM ou MOV, hospedado em um servidor que permita o download.</p>
+        </article>
+        <article>
+          <span class="step">02</span>
+          <h2>Confirme o arquivo</h2>
+          <p>Verificamos o tipo de conteúdo antes de iniciar. Nenhum link é salvo por este site.</p>
+        </article>
+        <article>
+          <span class="step">03</span>
+          <h2>Guarde onde quiser</h2>
+          <p>O navegador baixa o arquivo diretamente para o seu dispositivo, sujeito às regras do servidor de origem.</p>
+        </article>
+      </section>
+
+      <aside class="notice">
+        <strong>Uso responsável.</strong> Baixe apenas conteúdo que você criou ou tem licença para salvar. Serviços de streaming e redes sociais podem bloquear downloads por CORS, DRM ou seus termos de uso; esta ferramenta não contorna essas proteções.
+      </aside>
+    </main>
+    <footer>VideoDrop · uma ferramenta local para links diretos</footer>
+    <script src="app.js"></script>
+  </body>
+</html>
